@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Agendar Exame | LUME LAB BANABUIÚ</title>
+
+<link rel="stylesheet" href="agendar.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<section class="container">
+
+<div class="card">
+
+<div class="topo">
+
+<img src="img/logoo.png" class="logo">
+
+<h1>Agendar Exame</h1>
+
+<p>
+
+Preencha seus dados para solicitar o agendamento.
+Nossa equipe entrará em contato para confirmar a data e o horário.
+
+</p>
+
+</div>
+
+<form id="formAgendamento">
+
+<div class="input-box">
+
+<label>
+
+<i class="fa-solid fa-user"></i>
+
+Nome Completo
+
+</label>
+
+<input
+type="text"
+id="nome"
+placeholder="Digite seu nome"
+required>
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+<i class="fa-solid fa-phone"></i>
+
+Telefone
+
+</label>
+
+<input
+type="tel"
+id="telefone"
+placeholder="(88) 99999-9999"
+required>
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+<i class="fa-solid fa-envelope"></i>
+
+E-mail
+
+</label>
+
+<input
+type="email"
+id="email"
+placeholder="email@exemplo.com">
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+<i class="fa-solid fa-vial"></i>
+
+Exame
+
+</label>
+
+<select id="exame">
+
+<option>Hemograma Completo</option>
+
+<option>Glicemia</option>
+
+<option>Colesterol</option>
+
+<option>Triglicerídeos</option>
+
+<option>TSH</option>
+
+<option>T4 Livre</option>
+
+<option>PSA</option>
+
+<option>Vitamina D</option>
+
+<option>Beta HCG</option>
+
+<option>Outro Exame</option>
+
+</select>
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+<i class="fa-solid fa-calendar-days"></i>
+
+Data Desejada
+
+</label>
+
+<input
+type="date"
+id="data"
+required>
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+<i class="fa-solid fa-clock"></i>
+
+Horário
+
+</label>
+
+<select id="hora">
+
+<option>07:00</option>
+
+<option>07:30</option>
+
+<option>08:00</option>
+
+<option>08:30</option>
+
+<option>09:00</option>
+
+<option>09:30</option>
+
+<option>10:00</option>
+
+<option>10:30</option>
+
+<option>11:00</option>
+
+</select>
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+<i class="fa-solid fa-comment-medical"></i>
+
+Observações
+
+</label>
+
+<textarea
+
+id="obs"
+
+rows="4"
+
+placeholder="Informe alguma observação, caso necessário."
+
+></textarea>
+
+</div>
+
+<button type="submit">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+Solicitar Agendamento
+
+</button>
+
+</form>
+
+<div class="info">
+
+<div>
+
+<i class="fa-solid fa-location-dot"></i>
+
+Banabuiú - CE
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-phone"></i>
+
+(88) 99999-9999
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-clock"></i>
+
+Segunda à Sexta • 06h às 11h
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script src="agendar.js"></script>
+
+</body>
+
+</html>

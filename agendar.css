@@ -1,0 +1,672 @@
+/*==========================================
+    LUME LAB BANABUIÚ
+    Agendamento de Exames
+==========================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow-x:hidden;
+
+    background:
+    linear-gradient(rgba(255,255,255,.82),
+    rgba(255,255,255,.82)),
+    url("img/background-lab.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+
+    position:relative;
+
+}
+
+/*==========================
+        Overlay
+==========================*/
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at top right,
+    rgba(180,25,25,.08),
+    transparent 40%),
+
+    radial-gradient(circle at bottom left,
+    rgba(120,120,120,.08),
+    transparent 35%);
+
+    pointer-events:none;
+
+}
+
+/*==========================
+      Container
+==========================*/
+
+.container{
+
+    width:100%;
+
+    max-width:900px;
+
+    padding:40px 20px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/*==========================
+        Card
+==========================*/
+
+.card{
+
+    background:#ffffff;
+
+    border-radius:30px;
+
+    padding:45px;
+
+    border:1px solid #e8e8e8;
+
+    box-shadow:
+
+    0 20px 60px rgba(0,0,0,.08);
+
+    animation:fade .8s ease;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:6px;
+
+    background:
+
+    linear-gradient(90deg,#8B0000,#d32f2f,#ef5350);
+
+}
+
+/*==========================
+        Topo
+==========================*/
+
+.topo{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.logo{
+
+    width:140px;
+
+    margin-bottom:20px;
+
+    transition:.4s;
+
+}
+
+.logo:hover{
+
+    transform:scale(1.05);
+
+}
+
+.topo h1{
+
+    color:#8B0000;
+
+    font-size:36px;
+
+    margin-bottom:12px;
+
+    font-weight:700;
+
+}
+
+.topo p{
+
+    color:#666;
+
+    font-size:15px;
+
+    line-height:28px;
+
+    max-width:650px;
+
+    margin:auto;
+
+}
+
+/*==========================
+        Formulário
+==========================*/
+
+form{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:22px;
+
+}
+
+/*==========================
+      Campos
+==========================*/
+
+.input-box{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.input-box label{
+
+    margin-bottom:10px;
+
+    color:#555;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+.input-box label i{
+
+    color:#b71c1c;
+
+    margin-right:8px;
+
+}
+
+.input-box input,
+.input-box select,
+.input-box textarea{
+
+    width:100%;
+
+    padding:15px 18px;
+
+    border:1px solid #d8d8d8;
+
+    border-radius:14px;
+
+    background:#fafafa;
+
+    font-size:15px;
+
+    transition:.3s;
+
+    font-family:Poppins;
+
+}
+
+.input-box textarea{
+
+    resize:none;
+
+}
+
+.input-box input:focus,
+.input-box select:focus,
+.input-box textarea:focus{
+
+    outline:none;
+
+    border-color:#c62828;
+
+    background:#ffffff;
+
+    box-shadow:
+
+    0 0 0 4px rgba(198,40,40,.12);
+
+}
+
+/* textarea ocupa largura inteira */
+
+.input-box:last-of-type{
+
+    grid-column:1/3;
+
+}
+
+/*==========================================
+        BOTÃO
+==========================================*/
+
+button{
+
+    grid-column:1/3;
+
+    height:60px;
+
+    margin-top:10px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:linear-gradient(135deg,#8B0000,#c62828);
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    transition:.35s;
+
+    box-shadow:
+
+    0 12px 30px rgba(198,40,40,.25);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+button::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:50%;
+
+    height:100%;
+
+    background:rgba(255,255,255,.25);
+
+    transform:skewX(-25deg);
+
+    transition:.8s;
+
+}
+
+button:hover::before{
+
+    left:150%;
+
+}
+
+button:hover{
+
+    transform:translateY(-4px);
+
+    background:linear-gradient(135deg,#c62828,#ef5350);
+
+    box-shadow:
+
+    0 18px 40px rgba(198,40,40,.35);
+
+}
+
+button:active{
+
+    transform:scale(.98);
+
+}
+
+button i{
+
+    font-size:20px;
+
+}
+
+/*==========================================
+        INFORMAÇÕES
+==========================================*/
+
+.info{
+
+    margin-top:40px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+.info div{
+
+    background:#fafafa;
+
+    border:1px solid #ececec;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    text-align:center;
+
+    color:#555;
+
+    transition:.35s;
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,.04);
+
+}
+
+.info div:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#c62828;
+
+    box-shadow:
+
+    0 15px 35px rgba(198,40,40,.12);
+
+}
+
+.info i{
+
+    display:block;
+
+    font-size:28px;
+
+    color:#b71c1c;
+
+    margin-bottom:12px;
+
+}
+
+/*==========================================
+        ANIMAÇÕES
+==========================================*/
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.input-box{
+
+    animation:fade .7s ease;
+
+}
+
+.input-box:nth-child(1){animation-delay:.1s;}
+.input-box:nth-child(2){animation-delay:.2s;}
+.input-box:nth-child(3){animation-delay:.3s;}
+.input-box:nth-child(4){animation-delay:.4s;}
+.input-box:nth-child(5){animation-delay:.5s;}
+.input-box:nth-child(6){animation-delay:.6s;}
+.input-box:nth-child(7){animation-delay:.7s;}
+
+/*==========================================
+        SCROLLBAR
+==========================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#eeeeee;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#b71c1c;
+
+    border-radius:30px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#8B0000;
+
+}
+
+/*==========================================
+        SELEÇÃO
+==========================================*/
+
+::selection{
+
+    background:#b71c1c;
+
+    color:#ffffff;
+
+}
+
+/*==========================================
+        RESPONSIVO
+==========================================*/
+
+@media(max-width:900px){
+
+.card{
+
+    padding:35px;
+
+}
+
+.info{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:768px){
+
+form{
+
+    grid-template-columns:1fr;
+
+}
+
+.input-box:last-of-type{
+
+    grid-column:auto;
+
+}
+
+button{
+
+    grid-column:auto;
+
+}
+
+.card{
+
+    padding:28px;
+
+    border-radius:22px;
+
+}
+
+.logo{
+
+    width:110px;
+
+}
+
+.topo h1{
+
+    font-size:30px;
+
+}
+
+.topo p{
+
+    font-size:14px;
+
+    line-height:24px;
+
+}
+
+.info{
+
+    gap:15px;
+
+}
+
+.info div{
+
+    padding:18px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.container{
+
+    padding:15px;
+
+}
+
+.card{
+
+    padding:22px 18px;
+
+}
+
+.logo{
+
+    width:90px;
+
+}
+
+.topo h1{
+
+    font-size:26px;
+
+}
+
+.topo p{
+
+    font-size:13px;
+
+}
+
+.input-box input,
+.input-box select,
+.input-box textarea{
+
+    padding:14px;
+
+    font-size:14px;
+
+}
+
+button{
+
+    height:56px;
+
+    font-size:15px;
+
+}
+
+.info i{
+
+    font-size:24px;
+
+}
+
+.info div{
+
+    font-size:14px;
+
+}
+
+}
+
+/*==========================================
+        FIM
+==========================================*/
