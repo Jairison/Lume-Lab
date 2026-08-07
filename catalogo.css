@@ -1,0 +1,382 @@
+/*==========================================
+        RESET
+==========================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:
+    linear-gradient(rgba(255,255,255,.95),
+    rgba(255,255,255,.95)),
+    url(img/background-lab.jpg);
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    color:#333;
+
+}
+
+/*==========================================
+        CONTAINER
+==========================================*/
+
+.container{
+
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+    padding:40px 20px;
+
+}
+
+/*==========================================
+        CABEÇALHO
+==========================================*/
+
+header{
+
+    text-align:center;
+    margin-bottom:45px;
+
+}
+
+.logo{
+
+    width:150px;
+    margin-bottom:20px;
+    transition:.4s;
+
+}
+
+.logo:hover{
+
+    transform:scale(1.05);
+
+}
+
+header h1{
+
+    color:#b71c1c;
+    font-size:42px;
+    font-weight:700;
+
+}
+
+header p{
+
+    margin-top:10px;
+    color:#666;
+    font-size:17px;
+
+}
+
+/*==========================================
+        CATÁLOGO
+==========================================*/
+
+.catalogo{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+
+    gap:30px;
+
+}
+
+/*==========================================
+        CARD
+==========================================*/
+
+.pacote{
+
+    background:#fff;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    border:1px solid #ececec;
+
+}
+
+.pacote:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.12);
+
+}
+
+.titulo{
+
+    color:#fff;
+
+    padding:22px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.titulo i{
+
+    font-size:30px;
+
+}
+
+.titulo h2{
+
+    font-size:22px;
+
+}
+
+/*==========================================
+        LISTA
+==========================================*/
+
+.pacote ul{
+
+    list-style:none;
+
+    padding:25px;
+
+}
+
+.pacote ul li{
+
+    padding:12px 0;
+
+    border-bottom:1px solid #eee;
+
+    color:#555;
+
+    font-size:15px;
+
+}
+
+.pacote ul li:last-child{
+
+    border:none;
+
+}
+
+/*==========================================
+        PREÇO
+==========================================*/
+
+.preco{
+
+    background:#f8f8f8;
+
+    text-align:center;
+
+    padding:20px;
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    color:#b71c1c;
+
+    border-top:2px solid #eee;
+
+}
+
+/*==========================================
+        CORES
+==========================================*/
+
+.vermelho .titulo{
+
+    background:#c62828;
+
+}
+
+.amarelo .titulo{
+
+    background:#f9a825;
+
+}
+
+.azul .titulo{
+
+    background:#1565c0;
+
+}
+
+.rosa .titulo{
+
+    background:#ec407a;
+
+}
+
+.roxo .titulo{
+
+    background:#5e35b1;
+
+}
+
+.pink .titulo{
+
+    background:#d81b60;
+
+}
+
+.verde .titulo{
+
+    background:#7cb342;
+
+}
+
+/*==========================================
+        BOTÃO
+==========================================*/
+
+.voltar{
+
+    margin:50px auto 0;
+
+    width:320px;
+
+    height:60px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    text-decoration:none;
+
+    background:#b71c1c;
+
+    color:#fff;
+
+    border-radius:18px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+    box-shadow:
+    0 12px 30px rgba(183,28,28,.25);
+
+}
+
+.voltar:hover{
+
+    background:#d32f2f;
+
+    transform:translateY(-5px);
+
+}
+
+/*==========================================
+        RESPONSIVO
+==========================================*/
+
+@media(max-width:900px){
+
+header h1{
+
+    font-size:34px;
+
+}
+
+.logo{
+
+    width:120px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.catalogo{
+
+    grid-template-columns:1fr;
+
+}
+
+header h1{
+
+    font-size:28px;
+
+}
+
+header p{
+
+    font-size:15px;
+
+}
+
+.preco{
+
+    font-size:28px;
+
+}
+
+.voltar{
+
+    width:100%;
+
+}
+
+}
+
+/*==========================================
+        ANIMAÇÃO
+==========================================*/
+
+.pacote{
+
+    animation:fade .8s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
